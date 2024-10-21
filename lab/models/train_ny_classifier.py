@@ -1,4 +1,4 @@
-import pickle
+import pickle  # nosec B403
 from pathlib import Path
 
 import pandas as pd
@@ -20,7 +20,9 @@ N_JOBS = 4
 # Load data
 
 data_x = pd.read_parquet(DIR_DATA_PROCESSED / "ny_listings_x.parquet")
-data_y = pd.read_parquet(DIR_DATA_PROCESSED / "ny_listings_y.parquet").iloc[:, 0]
+data_y = pd.read_parquet(DIR_DATA_PROCESSED / "ny_listings_y.parquet").iloc[
+    :, 0
+]
 
 
 # Train model

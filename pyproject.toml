@@ -1,0 +1,11 @@
+[tool.black]
+line-length = 80
+
+[tool.flake8]
+exclude = "__pycache__, .*/"
+
+[tool.bandit]
+exclude_dirs = ["__pycache__", ".*"]
+
+[tool.bandit.assert_used]
+skips = ["*/*_test.py", "*/test_*.py"]

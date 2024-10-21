@@ -1,4 +1,4 @@
-import pickle
+import pickle  # nosec B403
 
 import pandas as pd
 from sklearn.base import BaseEstimator, ClassifierMixin
@@ -10,13 +10,13 @@ MAP_NEIGHBOURHOOD = {
     "Queens": 2,
     "Staten Island": 3,
     "Brooklyn": 4,
-    "Manhattan": 5
+    "Manhattan": 5,
 }
 MAP_ROOM_TYPE = {
     "Shared room": 1,
     "Private room": 2,
     "Entire home/apt": 3,
-    "Hotel room": 4
+    "Hotel room": 4,
 }
 FEATURE_NAMES = [
     "neighbourhood",
@@ -28,7 +28,7 @@ FEATURE_NAMES = [
 MAP_PREDICTION = {0.0: "Low", 1.0: "Mid", 2.0: "High", 3.0: "Lux"}
 
 
-class NYClassifier():
+class NYClassifier:
     """
     New York price classifier.
 
@@ -44,7 +44,7 @@ class NYClassifier():
     @staticmethod
     def from_pickle(model_path: str):
         with open(model_path, "rb") as model_file:
-            model: BaseEstimator = pickle.load(model_file)
+            model: BaseEstimator = pickle.load(model_file)  # nosec B301
 
         return NYClassifier(model)
 
