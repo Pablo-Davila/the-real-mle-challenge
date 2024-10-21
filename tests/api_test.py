@@ -43,7 +43,7 @@ def test_estimate(client):
         "elevator": 1,
         "internet": 0,
         "latitude": 40.71383,
-        "longitude": -73.9658
+        "longitude": -73.9658,
     }
     response = client.post("/estimate", json=listing)
 
