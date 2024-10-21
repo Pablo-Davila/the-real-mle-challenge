@@ -53,17 +53,6 @@ TEST_SIZE = 0.15
 SEED = 0
 
 
-def num_bathroom_from_text(text):
-    try:
-        if isinstance(text, str):
-            bath_num = text.split(" ")[0]
-            return float(bath_num)
-        else:
-            return np.nan
-    except ValueError:
-        return np.nan
-
-
 if __name__ == "__main__":
     data = pd.read_csv(FILEPATH_RAW, usecols=SOURCE_COLUMNS)
 
@@ -75,8 +64,10 @@ if __name__ == "__main__":
         inplace=True,
     )
 
-    # TODO Improve
-    data["bathrooms"] = data["bathrooms"].apply(num_bathroom_from_text)
+    data["bathrooms"] = pd.to_numeric(
+        arg=data["bathrooms"].str.split(" ").str[0],
+        errors="coerce",
+    )
 
     data.dropna(axis=0, inplace=True)
 
